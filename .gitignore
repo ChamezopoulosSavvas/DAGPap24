@@ -161,4 +161,5 @@ cython_debug/
 
 # Custom
 .DS_Store
-!data/.g*
+*/*.parquet
+poetry.lock
