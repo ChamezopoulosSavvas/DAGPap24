@@ -21,8 +21,8 @@ For more info on Poetry, please visit [the poetry docs](https://python-poetry.or
 
 ## Data
 
-- [training dataset](https://drive.google.com/file/d/1hJ-JtC0i8LBpD1hF3xWfRjkax42uE2NP/)
-- [dev dataset](https://drive.google.com/file/d/1rurhsY7cbS1JoYtE4h2-vTVFUdMP8fFo/)
+- [Download training dataset](https://drive.google.com/file/d/1hJ-JtC0i8LBpD1hF3xWfRjkax42uE2NP/)
+- [Download dev dataset](https://drive.google.com/file/d/1rurhsY7cbS1JoYtE4h2-vTVFUdMP8fFo/)
 
 ### Train data
 
@@ -34,11 +34,19 @@ The training set has the following columns:
 - token_label_ids – a list mapping each token from tokens with a corresponding label id (from 0 to 3), according to annotations.
 ```
 >>> train_df = pd.read_parquet('train_data.parquet', engine='fastparquet')
->>> train_df[['text', 'tokens', ]].head(2)
-                                                    text                                             tokens
-index                                                                                                      
-15096  Across the world, Emergency Departments are fa...  [Across, the, world,, Emergency, Departments, ...
-14428  lung Crab is the in the lead make of cancer-re...  [lung, Crab, is, the, in, the, lead, make, of,...
+>>> train_df[['text', 'tokens']].head(2)
+	                                            text	                        annotations
+index		
+15096	Across the world, Emergency Departments are fa...	[[0, 3779, human], [3780, 7601, NLTK_synonym_r...
+14428	lung Crab is the in the lead make of cancer-re...	[[0, 4166, NLTK_synonym_replacement], [4167, 2...
+
+
+>>> train_df[["tokens", "token_label_ids"]].head(2)
+	                                            tokens	                    token_label_ids
+index		
+15096	[Across, the, world,, Emergency, Departments, ...	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+14428	[lung, Crab, is, the, in, the, lead, make, of,...	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+
 ```
 
 ### Dev / Test data
@@ -62,6 +70,15 @@ index
 ## Evaluation
 
 We're using Macro F1 score on `token_label_ids`. For each Full text, we're tokenizing/splitting the text on whitespace, and labeling each token. The final score is the average f1 across all full texts in the test set.
+
+You can test your solution's performance offline by using the provided evaluation script [eval_f1.py](src/eval_f1.py)
+
+Usage:
+```
+poetry run python -m src.eval_f1 --true_labels_file <file-in-data-dir-with-true-labels>.parquet --pred_file predictions.parquet
+```
+
+> Both files (true labels file and predictions file) must be located in [data](data)
 
 ### To submit a solution:
 
@@ -94,7 +111,7 @@ Please note that you should not compress the folder with the prediction files. I
 We're also providing a baseline where we use [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) to approach the task as an NER task. To run the baseline, execute:
 
 ```
-poetry run python -m src.ml_gen_detection.span_prediction --config_file config_baseline.yml
+poetry run python -m src.ml_gen_detection.dagpap24_baseline
 ```
 
 |         **Pred model** 	| **Average Macro Macro F1 Score** 	|
