@@ -1,0 +1,26 @@
+data:
+  path_to_data: data
+  train_file: train_data.parquet # this is for the train_test_split.py and eval_f1.py output
+  test_file: dev_data.parquet # this is for the train_test_split.py and eval_f1.py output
+  train_file_name: data_gen_content_train.json # this is the train file to be used by hf_token_classification.py
+  validation_file_name: data_gen_content_val.json # this is the validation file to be used by hf_token_classification.py
+  test_file_name: data_gen_content_dev.json # this is the test file to be used by hf_token_classification.py
+environment:
+  SEED: 0
+  val_size: 0.2 # this is used in dagpap24_baseline.py to split train dataset 
+bert: # bert model params
+  model: distilbert/distilbert-base-uncased
+  MAX_LENGTH: 512
+  num_train_epochs: 10
+  per_device_train_batch_size: 8
+  per_device_eval_batch_size: 8
+  save_steps: 15000
+  output_dir: output_dev
+  overwrite_output_dir: True
+  report_to: none
+  do_train: True
+  do_eval: True
+  do_predict: True
+  preprocessing_num_workers: 16
+  eval_accumulation_steps: 5
+  log_level: error
