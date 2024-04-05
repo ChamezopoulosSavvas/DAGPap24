@@ -1,6 +1,6 @@
 # DAGPap24
 
-This repo includes all content relevant to DAGPap24 (Detection of Artificially Generated Scientific Papers 2024) competition, organised for SDP 2024
+This repo includes all content relevant to [DAGPap24 (Detection of Artificially Generated Scientific Papers 2024)](https://www.codabench.org/competitions/2431/#/pages-tab) competition, organised for SDP 2024
 
 ## Environment setup
 
@@ -100,7 +100,9 @@ See "[sample_dev_submission.zip](https://drive.google.com/file/d/1Xm59UlLJ-aemDG
 
 2. Compress (zip) the prediction file, for example, with a bash command:
 
+```
 zip my_new_submission.zip predictions.parquet
+```
 
 Please note that you should not compress the folder with the prediction files. Instead, you need to compress the files themselves: i.e., if you are submitting from Macbook (and you do not want to compress via terminal), you need to select all the prediction files that you want to send and press "Compress".
 
@@ -108,7 +110,7 @@ Please note that you should not compress the folder with the prediction files. I
 
 ## Baseline
 
-We're also providing a baseline where we use [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) to approach the task as an NER task. To run the baseline, execute:
+We're also providing a baseline where we use [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) to approach the task as a token classification task. To run the baseline, execute:
 
 ```
 poetry run python -m src.ml_gen_detection.dagpap24_baseline

@@ -66,7 +66,7 @@ def chunk_tokens_labels(df: pd.DataFrame, max_length: int):
 def write_df_to_json(df: pd.DataFrame, path_to_json: str):
     """
     This function writes pandas dataframes into a compatible json format
-    to be used by huggingface_ner
+    to be used by hf_token_classification.py
     """
     index_list = df["index"].values.tolist()
     tokens_list = df["tokens"].values.tolist()
@@ -255,7 +255,7 @@ if __name__ == "__main__":
         seed=params["environment"]["SEED"],
     )
 
-    # create huggingface_ner config file
+    # create hf_token_classification.py config file
     config_dict = {
         "train_file": f"{path_to_data_folder}/{output_train_file_name}",
         "validation_file": f"{path_to_data_folder}/{output_val_file_name}",
@@ -277,7 +277,7 @@ if __name__ == "__main__":
         "log_level": params["bert"]["log_level"],
     }
 
-    # save huggingface_ner config file
+    # save hf_token_classification.py config file
     hf_config_file_path = str(project_root / "config/config_huggingface.json")
     with open(hf_config_file_path, "w") as f:
         json.dump(config_dict, f, indent=4)
