@@ -161,5 +161,8 @@ cython_debug/
 
 # Custom
 .DS_Store
-*/*.parquet
+data/*
+!data/.gitkeep
+config/config_huggingface.json
 poetry.lock
+notebooks
