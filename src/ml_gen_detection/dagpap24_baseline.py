@@ -294,7 +294,7 @@ if __name__ == "__main__":
     )
     path_to_final_output = str(
         project_root
-        / f'{params["data"]["path_to_data"]}/preds_{params["bert"]["model"].split("/")[0]}.parquet'
+        / f'{params["data"]["path_to_data"]}/{params["data"]["pred_file_name"]}'
     )
 
     convert_preds_to_original_format(
