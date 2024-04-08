@@ -110,13 +110,14 @@ Please note that you should not compress the folder with the prediction files. I
 
 ## Baseline
 
-We're also providing a baseline where we use [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) to approach the task as a token classification task. To run the baseline, execute:
+We're also providing a baseline where we use [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased) and [DistilBERT](https://huggingface.co/docs/transformers/model_doc/distilbert) to approach the task as a token classification task. To run the baseline, execute:
 
 ```
 poetry run python -m src.ml_gen_detection.dagpap24_baseline
 ```
 
-|         **Pred model** 	| **Average Macro Macro F1 Score** 	|
+|         **Pred model** 	| **Average Macro F1 Score** 	|
 |-----------------------:	|-----------------------------------|
 |        All zeros score 	|                            0.36 	|
-| DistilBERT (20 epochs) 	|                            0.84 	|
+| DistilBERT (10 epochs) 	|                            0.84 	|
+| **SciBERT (10 epochs)** 	|                            **0.87**|
