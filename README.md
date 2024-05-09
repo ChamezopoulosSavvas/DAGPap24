@@ -23,6 +23,13 @@ For more info on Poetry, please visit [the poetry docs](https://python-poetry.or
 
 - [Download training dataset](https://drive.google.com/file/d/1hJ-JtC0i8LBpD1hF3xWfRjkax42uE2NP/)
 - [Download dev dataset](https://drive.google.com/file/d/1rurhsY7cbS1JoYtE4h2-vTVFUdMP8fFo/)
+- [Download test dataset](https://drive.google.com/file/d/1q5Pi2l_Uf2-4POb-kCkOlpZY5a2fruMo/view?usp=sharing)
+
+
+### Data labels
+
+- [Download dev dataset labels](https://drive.google.com/file/d/1SbPHRGwVA4vSePNjOKflGSBajce5P-1a/view?usp=sharing)
+- [Download test dataset labels](https://drive.google.com/file/d/1H_fkQ_o5j9uTER4Xbv4aue5Vl30g5kJj/view?usp=sharing)
 
 ### Train data
 
